@@ -1,16 +1,22 @@
 
 
-function Select({countries , setSelectContinent}) {
+function Select({countries , handleSelect}) {
 
+const handleClick =(ev)=>{
+  handleSelect(ev.target.value);
+}
 
   return (
     <label htmlFor="continent">
         By Continent: 
-        <select id="continent" onChange={(e)=>  setSelectContinent(e.target.value)}>
+        <select id="continent" onChange={handleClick}>
         <option value="All">All</option>
-        {countries.map((country, i) => (
-          <option key={i} value={country.continents[0]}>{country.continents}</option>
-        ))}
+        <option value="Africa">Africa</option>
+        <option value="Europe">Europe</option>
+        <option value="South America">South America</option>
+        <option value="North America">North America</option>
+        <option value="Oceania">Oceania</option>
+        <option value="Asia">Asia</option>
         </select>
     </label>
   )

@@ -1,6 +1,6 @@
 import Select from "./Select"
 
-function Filters({setSearchCountry, countries, setSelectContinent}) {
+function Filters({setSearchCountry, countries, handleSelect}) {
 
 
 
@@ -12,7 +12,7 @@ function Filters({setSearchCountry, countries, setSelectContinent}) {
         By Country: 
         <input type="text" id="country" onChange={(ev)=> { setSearchCountry(ev.target.value)}}/></label>
 
-      <Select countries={countries} setSelectContinent={setSelectContinent}/>
+      <Select countries={countries} handleSelect={handleSelect}/>
     </form>
     </>
   )
