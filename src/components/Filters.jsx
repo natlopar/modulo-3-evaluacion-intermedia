@@ -1,5 +1,9 @@
+import Select from "./Select"
 
-function Filters({setSearchCountry}) {
+function Filters({setSearchCountry, countries, setSelectContinent}) {
+
+
+
   return (
     <>
     <h4>Filters</h4>
@@ -8,12 +12,7 @@ function Filters({setSearchCountry}) {
         By Country: 
         <input type="text" id="country" onChange={(ev)=> { setSearchCountry(ev.target.value)}}/></label>
 
-      {/* <label htmlFor="continent">
-        By Continent: 
-        <select type="select" id="continent" onChange={handleChange}>
-        <option value="All">All</option>
-        {countries.map((country,i)=> <option value={country.continents}>{country.continents}</option> )}
-        </select></label> */}
+      <Select countries={countries} setSelectContinent={setSelectContinent}/>
     </form>
     </>
   )
