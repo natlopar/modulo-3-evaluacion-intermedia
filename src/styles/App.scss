@@ -1,16 +1,15 @@
-@import 'core/reset';
+// @import 'core/reset';
 
-.imageCard {
+.card {
     width: 150px;
     margin: 10px;
+    border: 1px solid blue;
+    text-align: center;
 }
 
-.imageCard img {
-    width: 100%;
+.containerCountries {
+   list-style: none;
+   display: flex;
+   flex-wrap: wrap;
 }
 
-// .bigImage {
-//     position: absolute;
-//     top:0;
-//     left:0;
-// }
