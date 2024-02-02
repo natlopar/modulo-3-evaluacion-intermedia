@@ -8,6 +8,9 @@ function App() {
 
 const [countries, setCountries] = useState(data);
 
+const[searchCountry, setSearchCountry] = useState ('');
+const filteredCountries = countries.filter((country)=> 
+    country.name.common.toLowerCase().includes(searchCountry.toLowerCase()));
 
 
 
@@ -19,9 +22,9 @@ const [countries, setCountries] = useState(data);
     <h3>Add new countries and filter through the list!</h3>
     </header>
     <main>
-        <Filters/>
+        <Filters setSearchCountry={setSearchCountry}/>
         <section>
-        <ListCountries countries={countries}/>
+        <ListCountries countries={filteredCountries}/>
         </section>
     </main>
     
