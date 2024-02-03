@@ -3,10 +3,12 @@ import '../styles/App.scss';
 import data from '../services/data.json';
 import Filters from './Filters';
 import ListCountries from './ListCountries';
+import Add from './Add';
 function App() {
   const [countries, setCountries] = useState(data);
   const [searchCountry, setSearchCountry] = useState('');
   const [selectContinent, setSelectContinent] = useState('All');
+  const [newCountry, setNewCountry] = useState({});
 
   let filteredCountries = countries
     .filter((country) =>
@@ -18,14 +20,28 @@ function App() {
     }
     );
 
-  //si en vez de enviar setSelect envío fx handle para event..
-
   const handleSelect = (value) => {
     setSelectContinent(value);
     if(setSelectContinent === 'All'){
         filteredCountries = countries; 
     }
   };
+
+  const handleAddNewCountry = (object)=>{
+    setNewCountry({...newCountry, [object.key]: object.value})
+  }
+
+  const handleCountries =()=> {
+    const country = {
+      name : {
+        common: newCountry.name
+      }, 
+      capital: [newCountry.capital],
+      continents: [newCountry.continents],
+      flag: newCountry.flag
+    }
+    setCountries([...countries, country])
+  }
 
   return (
     <>
@@ -40,6 +56,7 @@ function App() {
           countries={countries}
           handleSelect={handleSelect}
         />
+        <Add handleAddNewCountry={handleAddNewCountry} handleCountries={handleCountries}/>
         <section>
           <ListCountries countries={filteredCountries} />
         </section>
