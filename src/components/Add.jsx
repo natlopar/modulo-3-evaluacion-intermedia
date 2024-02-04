@@ -13,7 +13,7 @@ function Add({handleAddNewCountry, handleCountries}) {
     handleCountries();
   }
   return (
-    <form>
+    <form className="addForm">
         <h3>Add country</h3>
         <input type="text" placeholder="Country Name" onChange={handleInput} id="name"/>
         <input type="text" placeholder="Capital" onChange={handleInput} id="capital"/>

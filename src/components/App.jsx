@@ -29,7 +29,7 @@ function App() {
 
   const handleAddNewCountry = (object)=>{
     setNewCountry({...newCountry, [object.key]: object.value})
-  }
+  };
 
   const handleCountries =()=> {
     const country = {
@@ -41,7 +41,14 @@ function App() {
       flag: newCountry.flag
     }
     setCountries([...countries, country])
-  }
+  };
+
+  const handleDelete =(indexClicked)=>{
+    const prevCountries = [...countries];
+    prevCountries.splice(indexClicked, 1);
+    setCountries(prevCountries);
+    
+  };
 
   return (
     <>
@@ -58,7 +65,9 @@ function App() {
         />
         <Add handleAddNewCountry={handleAddNewCountry} handleCountries={handleCountries}/>
         <section>
-          <ListCountries countries={filteredCountries} />
+          <ListCountries 
+          countries={filteredCountries}
+          handleDelete={handleDelete} />
         </section>
       </main>
     </>
